@@ -4,10 +4,11 @@ const cors = require('cors');
 
 const app = express();
 
-app.use(cors({origin: "http://localhost:5173"}));
+// Enable CORS for your local frontend (update the URL if needed for production)
+app.use(cors({ origin: "http://localhost:5173" }));
+
 // Middleware to parse JSON bodies
 app.use(express.json());
-
 
 // Define the endpoint that triggers the third-party API and generates test cases
 app.post('/generate-test-cases', async (req, res) => {
@@ -32,7 +33,9 @@ app.post('/generate-test-cases', async (req, res) => {
   }
 });
 
-// Start the Express server on port 3000
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+// Use Heroku's dynamic port or fallback to 3000 for local development
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
