@@ -43,7 +43,7 @@ async function generateTestCasesWithGemini(responseData, url, method, headers) {
       Headers: ${JSON.stringify(headers)}
       Response: ${JSON.stringify(responseData)}
 
-      Generate test cases for this request:
+      Generate test cases for this request and the test cases should be in chai.js format with proper heading and description:
     `;
 
     // Call the Gemini API to generate test cases based on the constructed prompt
