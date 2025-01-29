@@ -1,8 +1,9 @@
 // import fetch from 'node-fetch';
+require('dotenv').config(); 
 const { GoogleGenerativeAI } = require('@google/generative-ai'); // Import the generative AI client
 
 // Initialize the Google Generative AI client with the API key
-const genAI = new GoogleGenerativeAI(process.env.API_KEY); // Ensure the API key is set in the environment
+const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY); // Ensure the API key is set in the environment
 
 // Function to interact with the third-party API and generate test cases using Gemini
 async function generateTestCasesFromResponse(url, method, headers) {
@@ -32,7 +33,7 @@ async function generateTestCasesFromResponse(url, method, headers) {
 
 // Function to send the response data to Gemini API and generate test cases based on it
 async function generateTestCasesWithGemini(responseData, url, method, headers) {
-  const geminiApiKey = process.env.API_KEY; // Get the Gemini API key from config
+  const geminiApiKey = process.env.GOOGLE_API_KEY; // Get the Gemini API key from config
 
   try {
     // Construct the prompt that includes the dynamic details
