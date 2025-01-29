@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 
 // Enable CORS for your local frontend (update the URL if needed for production)
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: "https://api-tester-frontend.vercel.app/" }));
 
 // Middleware to parse JSON bodies
 app.use(express.json());
